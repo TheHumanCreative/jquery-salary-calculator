@@ -1,1 +1,24 @@
-console.log()
+body {
+    background-color: lightslategray;
+} /*working CSS file to make the background black.*/
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+h4 {
+    text-align: right;
+}
+
+#input {
+    
+}
+
+table {
+    text-align: center;
+    align-content: stretch;
+}
