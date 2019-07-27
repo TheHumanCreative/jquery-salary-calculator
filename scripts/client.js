@@ -3,7 +3,7 @@ console.log('client.js is running..');
 $(document).ready(readyNow);
 
 function newEmployee(){
-    console.log('in newEmployee');
+    console.log('adding a newEmployee');
     let firstname = $('#firstName').val();
     let lastname = $('#lastName').val();
     let iD = $('#iD').val();
@@ -23,7 +23,6 @@ function newEmployee(){
 }// end newEmployee function.
 
 
-
 // created readyNow to be the first function ran upon the page load. 
 function readyNow() {
     console.log('DOM is Ready!');
@@ -33,27 +32,27 @@ function readyNow() {
 
 
 // created a function to gather the values inputed by the user.
-function infoGath(){
-    console.log('in infoGath');
+function monthlyCost(){
+    console.log('in monthlyCost');
     //logging the function works.
-    
-    
-}// end infoGath
+    return annualsalary / 12;
+    console.log(annualsalary / 12);
+}// end 
 
 // created a function to calculate the annual to monthly conversion of the salary.
 
-function annualCalc(){
-    console.log('in annualCalc');
+function monthlyTotal(){
+    console.log('');
     //logging the function works.
 
     //
 
-}// end annualCalc
+}// end 
 
-function monthlyCalc(){
-    console.log('in monthlyCalc');
+function addEmployee(){
+    console.log('');
     //logging the function works.
+    
 
-
-}// end monthlyCalc
+}// end 
 
