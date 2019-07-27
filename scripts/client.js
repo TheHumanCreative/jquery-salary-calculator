@@ -8,15 +8,27 @@ function newEmployee(){
     let lastname = $('#lastName').val();
     let iD = $('#iD').val();
     let title = $('#title').val();
-    let monthlysalary = ($('#annualSalary').val() / 12); // does the math for the annual / 12 = monthly
+    let monthly = ($('#annualSalary').val() / 12); // does the math for the annual value / 12 = monthly value
     let annualsalary = $('#annualSalary').val();
 
     console.log(firstname);
     console.log(lastname);
     console.log(iD);
     console.log(title);
-    console.log(monthlysalary);
+    console.log(monthly);
     console.log(annualsalary);
+
+    $('#employeeData').append(
+        `<tr>
+            <td>${firstname}</td>
+            <td>${lastname}</td>
+            <td>${iD}</td>
+            <td>${title}</td>
+            <td>${monthly}</td>
+            <td>${annualsalary}</td>
+            <td><th><button class="delete">Delete</button></th></td>
+        </tr>`
+    );
 
 //logged out the info input and gathered from the submit button which shows the employees data in the console. 
     
@@ -28,6 +40,7 @@ function readyNow() {
     console.log('DOM is Ready!');
     //logging the function works.
     $('#infoGrabber').on('click', newEmployee );
+    $('#employeeData').on('click', '.delete', deleteEmployee );
 }// end readyNow
 
 
@@ -42,17 +55,15 @@ function monthlyCost(){
 // created a function to calculate the annual to monthly conversion of the salary.
 
 function monthlyTotal(){
-    console.log('');
+    console.log('in monthlyTotal');
     //logging the function works.
-
-    //
-
+    // take all input employee monthly totals from the salaries and add them together
+    // return a value that is appended to the DOM in the "Total Monthly" h4 tags
 }// end 
 
-function addEmployee(){
-    console.log('');
+function deleteEmployee(){
+    console.log('deleted emplopyee from DOM');
     //logging the function works.
-    
-
+    $(this).parent().parent().remove();
 }// end 
 
