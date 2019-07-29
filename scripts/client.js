@@ -27,13 +27,13 @@ function newEmployee(){
             <td>${lastname}</td>
             <td>${iD}</td>
             <td>${title}</td>
-            <td>${monthly}</td>
+            <td class="monthlySalary">${monthly}</td>
             <td>${annualsalary}</td>
             <td><th><button class="delete">Delete</button></th></td>
         </tr>`
     );
 
-    $('#grandTotal').append(`${totalMonthly}`);
+    // $('#grandTotal').append(`${totalMonthly}`);
 //logged out the info input and gathered from the submit button which shows the employees data in the console. 
     
 }// end newEmployee function.
@@ -46,8 +46,9 @@ function readyNow() {
     $('#infoGrabber').on('click', newEmployee );
     $('#infoGrabber').on('click', monthlyTotal);
     $('#infoGrabber').on('click', removeInput);
-    $('#employeeData').on('click', '.delete', deleteEmployee );
-    $('#employeeData').on('click', '.delete', emptyTotal )= 
+    $('#employeeData').on('click', '.delete', deleteEmployee);
+    $('#employeeData').on('click', '.delete', overTwenty);
+    $('#infoGrabber').on('click', overTwenty );
 }// end readyNow
 
 // created a function to calculate the annual to monthly conversion of the salary.
@@ -63,10 +64,14 @@ function monthlyTotal(){
 }// end monthlyTotal
 
 
-// created a function to empty the totalMonthly variable value to the previous value seen. 
-function emptyTotal(){
-    console.log('in emptyTotal');
-    $(`${totalMonthly}`.val(''));
+//created a function to empty the totalMonthly variable value to the previous value seen. 
+function overTwenty(){
+    console.log('in overTwenty');
+    if (totalMonthly >= 20000){ 
+        $('#monthlyTotal').addClass('funTotal')
+    } else {
+        $('#monthlyTotal').removeClass('funTotal')
+    }
 
     //logging the function works. 
 }// end emptyTotal
@@ -75,6 +80,11 @@ function emptyTotal(){
 function deleteEmployee(){
     console.log('deleted emplopyee from DOM');
     //logging the function works.
+    let monthlySalary = $(this).parent().siblings('.monthlySalary').text();
+    console.log(monthlySalary);
+    totalMonthly -= monthlySalary;
+    console.log(totalMonthly);
+    $('#monthlyTotal').text('Total Monthly' + totalMonthly);
     $(this).parent().parent().remove();
 }// end deleteEmployee
 
