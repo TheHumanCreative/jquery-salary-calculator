@@ -2,6 +2,8 @@ console.log('client.js is running..');
 // tested and logged to show the file is linked to the index.html
 $(document).ready(readyNow);
 
+let totalMonthly = 0;
+
 function newEmployee(){
     console.log('adding a newEmployee');
     let firstname = $('#firstName').val();
@@ -30,6 +32,9 @@ function newEmployee(){
         </tr>`
     );
 
+    $('#grandTotal').append(
+        `<tr><td>${totalMonthly}</td></tr>`
+    )
 //logged out the info input and gathered from the submit button which shows the employees data in the console. 
     
 }// end newEmployee function.
@@ -40,7 +45,9 @@ function readyNow() {
     console.log('DOM is Ready!');
     //logging the function works.
     $('#infoGrabber').on('click', newEmployee );
+    $('#infoGrabber').on('click', removeInput);
     $('#employeeData').on('click', '.delete', deleteEmployee );
+
 }// end readyNow
 
 
@@ -48,8 +55,8 @@ function readyNow() {
 function monthlyCost(){
     console.log('in monthlyCost');
     //logging the function works.
-    return annualsalary / 12;
-    console.log(annualsalary / 12);
+    totalMonthly = totalMonthly + monthly;
+    console.log('Total Monthly:', totalMonthly);
 }// end 
 
 // created a function to calculate the annual to monthly conversion of the salary.
@@ -59,11 +66,22 @@ function monthlyTotal(){
     //logging the function works.
     // take all input employee monthly totals from the salaries and add them together
     // return a value that is appended to the DOM in the "Total Monthly" h4 tags
-}// end 
+}// end monthlyTotal
 
 function deleteEmployee(){
     console.log('deleted emplopyee from DOM');
     //logging the function works.
     $(this).parent().parent().remove();
-}// end 
+}// end deleteEmployee
 
+function removeInput(){
+    console.log('Data fields wiped. Ready for new input.');
+    //logging the function works.
+    $('#firstName').val('');
+    $('#lastName').val('');
+    $('#iD').val('');
+    $('#title').val('');
+    $('#annualSalary').val('');
+    //sets the values of all input fields back to 0 / no value. 
+
+}// end removeInput
