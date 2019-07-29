@@ -15,7 +15,7 @@ function newEmployee(){
     let monthly = ($('#annualSalary').val() / 12); // does the math for the annual value / 12 = monthly value
     let annualsalary = $('#annualSalary').val();
 
-
+    //showing in the console what the employee gathered input is as it ties to the variable name. 
     console.log(firstname);
     console.log(lastname);
     console.log(iD);
@@ -23,6 +23,7 @@ function newEmployee(){
     console.log(monthly);
     console.log(annualsalary);
 
+    //adding the content / table item / to the DOM at the point specified on the index.html file
     $('#employeeData').append(
         `<tr>
             <td>${firstname}</td>
@@ -71,8 +72,6 @@ function overTwenty(){
     } else {
         $('#monthlyTotal').removeClass('funTotal')
     }
-
-    //logging the function works. 
 }// end overTwenty
 
 // created a function to remove an employee from the table and the DOM via the click of the 'delete' button. 
