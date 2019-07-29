@@ -21,3 +21,7 @@ table {
 .funTotal {
     background-color: red;
 }
+input {
+    background-color: cornsilk;
+    text-decoration-color: saddlebrown;
+}

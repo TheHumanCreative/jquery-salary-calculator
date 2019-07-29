@@ -56,8 +56,8 @@ function monthlyTotal(){
     console.log('in monthlyTotal');
     //logging the function works.
     totalMonthly = totalMonthly + ($('#annualSalary').val() / 12);
-    $('#monthlyTotal').append('Total Monthly:'+`${totalMonthly}`);
-    $('#monthlyTotal').text('Total Monthly'+totalMonthly);
+    // $('#monthlyTotal').append('Total Monthly:'+`${totalMonthly}`);
+    $('#monthlyTotal').text(totalMonthly);
     console.log('Total Monthly:', totalMonthly);
     // take all input employee monthly totals from the salaries and add them together
     // return a value that is appended to the DOM in the "Total Monthly" h4 tags
@@ -67,6 +67,7 @@ function monthlyTotal(){
 //created a function to empty the totalMonthly variable value to the previous value seen. 
 function overTwenty(){
     console.log('in overTwenty');
+    //loggin the function works.
     if (totalMonthly >= 20000){ 
         $('#monthlyTotal').addClass('funTotal')
     } else {
@@ -84,7 +85,7 @@ function deleteEmployee(){
     console.log(monthlySalary);
     totalMonthly -= monthlySalary;
     console.log(totalMonthly);
-    $('#monthlyTotal').text('Total Monthly' + totalMonthly);
+    $('#monthlyTotal').text(totalMonthly);
     $(this).parent().parent().remove();
 }// end deleteEmployee
 
