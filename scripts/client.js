@@ -1,11 +1,13 @@
-console.log('client.js is running..');
+//console.log('client.js is running..');
 // tested and logged to show the file is linked to the index.html
 $(document).ready(readyNow);
 
 let totalMonthly = 0;
+// defined a global variable to hold the value of the input from the annual / 12.
 
 function newEmployee(){
     console.log('adding a newEmployee');
+    //logging the function works.
     let firstname = $('#firstName').val();
     let lastname = $('#lastName').val();
     let iD = $('#iD').val();
@@ -32,16 +34,13 @@ function newEmployee(){
             <td><th><button class="delete">Delete</button></th></td>
         </tr>`
     );
-
-    // $('#grandTotal').append(`${totalMonthly}`);
-//logged out the info input and gathered from the submit button which shows the employees data in the console. 
     
 }// end newEmployee function.
 
 
 // created readyNow to be the first function ran upon the page load. 
 function readyNow() {
-    console.log('DOM is Ready!');
+    //console.log('DOM is Ready!');
     //logging the function works.
     $('#infoGrabber').on('click', newEmployee );
     $('#infoGrabber').on('click', monthlyTotal);
@@ -53,7 +52,7 @@ function readyNow() {
 
 // created a function to calculate the annual to monthly conversion of the salary.
 function monthlyTotal(){
-    console.log('in monthlyTotal');
+    //console.log('in monthlyTotal');
     //logging the function works.
     totalMonthly = totalMonthly + ($('#annualSalary').val() / 12);
     // $('#monthlyTotal').append('Total Monthly:'+`${totalMonthly}`);
@@ -66,7 +65,7 @@ function monthlyTotal(){
 
 //created a function to empty the totalMonthly variable value to the previous value seen. 
 function overTwenty(){
-    console.log('in overTwenty');
+    //console.log('in overTwenty');
     //loggin the function works.
     if (totalMonthly >= 20000){ 
         $('#monthlyTotal').addClass('funTotal')
@@ -75,7 +74,7 @@ function overTwenty(){
     }
 
     //logging the function works. 
-}// end emptyTotal
+}// end overTwenty
 
 // created a function to remove an employee from the table and the DOM via the click of the 'delete' button. 
 function deleteEmployee(){
