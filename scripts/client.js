@@ -13,6 +13,7 @@ function newEmployee(){
     let monthly = ($('#annualSalary').val() / 12); // does the math for the annual value / 12 = monthly value
     let annualsalary = $('#annualSalary').val();
 
+
     console.log(firstname);
     console.log(lastname);
     console.log(iD);
@@ -32,9 +33,7 @@ function newEmployee(){
         </tr>`
     );
 
-    $('#grandTotal').append(
-        `<tr><td>${totalMonthly}</td></tr>`
-    )
+    $('#grandTotal').append(`${totalMonthly}`);
 //logged out the info input and gathered from the submit button which shows the employees data in the console. 
     
 }// end newEmployee function.
@@ -45,35 +44,41 @@ function readyNow() {
     console.log('DOM is Ready!');
     //logging the function works.
     $('#infoGrabber').on('click', newEmployee );
+    $('#infoGrabber').on('click', monthlyTotal);
     $('#infoGrabber').on('click', removeInput);
     $('#employeeData').on('click', '.delete', deleteEmployee );
-
+    $('#employeeData').on('click', '.delete', emptyTotal )= 
 }// end readyNow
 
-
-// created a function to gather the values inputed by the user.
-function monthlyCost(){
-    console.log('in monthlyCost');
-    //logging the function works.
-    totalMonthly = totalMonthly + monthly;
-    console.log('Total Monthly:', totalMonthly);
-}// end 
-
 // created a function to calculate the annual to monthly conversion of the salary.
-
 function monthlyTotal(){
     console.log('in monthlyTotal');
     //logging the function works.
+    totalMonthly = totalMonthly + ($('#annualSalary').val() / 12);
+    $('#monthlyTotal').append('Total Monthly:'+`${totalMonthly}`);
+    $('#monthlyTotal').text('Total Monthly'+totalMonthly);
+    console.log('Total Monthly:', totalMonthly);
     // take all input employee monthly totals from the salaries and add them together
     // return a value that is appended to the DOM in the "Total Monthly" h4 tags
 }// end monthlyTotal
 
+
+// created a function to empty the totalMonthly variable value to the previous value seen. 
+function emptyTotal(){
+    console.log('in emptyTotal');
+    $(`${totalMonthly}`.val(''));
+
+    //logging the function works. 
+}// end emptyTotal
+
+// created a function to remove an employee from the table and the DOM via the click of the 'delete' button. 
 function deleteEmployee(){
     console.log('deleted emplopyee from DOM');
     //logging the function works.
     $(this).parent().parent().remove();
 }// end deleteEmployee
 
+// created a function to remove the input values from the placeholders referenced in the index.html file.
 function removeInput(){
     console.log('Data fields wiped. Ready for new input.');
     //logging the function works.
@@ -83,5 +88,4 @@ function removeInput(){
     $('#title').val('');
     $('#annualSalary').val('');
     //sets the values of all input fields back to 0 / no value. 
-
 }// end removeInput
