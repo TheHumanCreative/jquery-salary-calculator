@@ -54,7 +54,7 @@ function readyNow() {
 function monthlyTotal(){
     //console.log('in monthlyTotal');
     //logging the function works.
-    totalMonthly = totalMonthly + ($('#annualSalary').val() / 12);
+    totalMonthly = totalMonthly + ($('#annualSalary').val() / 12); 
     $('#monthlyTotal').text(totalMonthly);
     console.log('Total Monthly:', totalMonthly);
     // take all input employee monthly totals from the salaries and add them together
